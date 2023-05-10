@@ -1,10 +1,20 @@
 import React from 'react';
 
-// import Hero from './Hero';
+import Hero from './Hero';
 import Navbar from './Navbar';
 // import Card from './Card';
-// import data from './data';
+import data from './data';
 
 export default function App() {
-  return <Navbar />;
+  const cards = data.map((item) => {
+    return <Card key={item.id} title={item.title} />;
+  });
+
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      <section className="cards-list">{cards}</section>
+    </div>
+  );
 }
